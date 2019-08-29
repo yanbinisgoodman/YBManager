@@ -22,6 +22,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8EC583FD2317998F006D1F83 /* YBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC583FC2317998F006D1F83 /* YBManager.m */; };
 		E2167748DA39F4DC4022A95A /* Pods_YBManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2360C68C6A0C57DF74B6D23B /* Pods_YBManager_Tests.framework */; };
 		F2111CA8251E1B2AD68CBA6E /* Pods_YBManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF799ED1978519ED1070FE7A /* Pods_YBManager_Example.framework */; };
 /* End PBXBuildFile section */
@@ -37,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		080C6749C3FF9C419A9B8E89 /* YBManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YBManager.podspec; path = ../YBManager.podspec; sourceTree = "<group>"; };
+		080C6749C3FF9C419A9B8E89 /* YBManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YBManager.podspec; path = ../YBManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2360C68C6A0C57DF74B6D23B /* Pods_YBManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YBManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		552663F31F1A3F656060BB47 /* Pods-YBManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBManager_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YBManager_Tests/Pods-YBManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YBManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YBManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,12 +62,14 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8EC583FB2317998F006D1F83 /* YBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YBManager.h; path = ../../YBManager/Classes/YBManager.h; sourceTree = "<group>"; };
+		8EC583FC2317998F006D1F83 /* YBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YBManager.m; path = ../../YBManager/Classes/YBManager.m; sourceTree = "<group>"; };
 		AF799ED1978519ED1070FE7A /* Pods_YBManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YBManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD155952364AABF1AED9F6FE /* Pods-YBManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBManager_Example.release.xcconfig"; path = "Target Support Files/Pods-YBManager_Example/Pods-YBManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BD68D16F63FA3C75F46007B6 /* Pods-YBManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBManager_Example.debug.xcconfig"; path = "Target Support Files/Pods-YBManager_Example/Pods-YBManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E264B551BD021DE8D4EF0783 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E264B551BD021DE8D4EF0783 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F446F89ED4E0FB4CC5BC7203 /* Pods-YBManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YBManager_Tests.release.xcconfig"; path = "Target Support Files/Pods-YBManager_Tests/Pods-YBManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FC5D71C8FC714345BF5AA5E2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FC5D71C8FC714345BF5AA5E2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,7 @@
 		6003F593195388D20070C39A /* Example for YBManager */ = {
 			isa = PBXGroup;
 			children = (
+				8EC583FA23179962006D1F83 /* lib */,
 				6003F59C195388D20070C39A /* YBAppDelegate.h */,
 				6003F59D195388D20070C39A /* YBAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -185,6 +189,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8EC583FA23179962006D1F83 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				8EC583FB2317998F006D1F83 /* YBManager.h */,
+				8EC583FC2317998F006D1F83 /* YBManager.m */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		F7352635ED83851B3A065C9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +206,6 @@
 				552663F31F1A3F656060BB47 /* Pods-YBManager_Tests.debug.xcconfig */,
 				F446F89ED4E0FB4CC5BC7203 /* Pods-YBManager_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +260,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "476018863@qq.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = KMHP583J66;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +273,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -364,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC583FD2317998F006D1F83 /* YBManager.m in Sources */,
 				6003F59E195388D20070C39A /* YBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* YBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -494,9 +511,11 @@
 			baseConfigurationReference = BD68D16F63FA3C75F46007B6 /* Pods-YBManager_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KMHP583J66;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YBManager/YBManager-Prefix.pch";
 				INFOPLIST_FILE = "YBManager/YBManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -510,9 +529,11 @@
 			baseConfigurationReference = BD155952364AABF1AED9F6FE /* Pods-YBManager_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KMHP583J66;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YBManager/YBManager-Prefix.pch";
 				INFOPLIST_FILE = "YBManager/YBManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
