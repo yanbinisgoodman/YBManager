@@ -8,6 +8,7 @@
 
 #import "YBManager.h"
 
+
 @implementation YBManager
 static YBManager *ybToolModel = nil;
 
@@ -20,6 +21,30 @@ static YBManager *ybToolModel = nil;
         });
     }
     return ybToolModel;
+}
+
+- (UIFont *)fontMain{
+    return [UIFont systemFontOfSize:14];
+}
+
+- (UIColor *)colorBg{
+    return [YBManager colorWith:0XF5F5F5];
+}
+
+-(UIColor *)colorLine{
+    return [YBManager colorWith:0xf0f0f0];
+}
+
+-(UIColor *)colorFont{
+    return [YBManager colorWith:0x26324E];
+}
+
+- (UIColor *)colorFontLight{
+    return [YBManager colorWith:0xA7B1D1];
+}
+
+- (UIColor *)colorMain{
+    return [YBManager colorWith:0xFFA029];
 }
 
 +(NSString*)getCurrentTime{
@@ -88,7 +113,7 @@ static YBManager *ybToolModel = nil;
     return dayComponents.day;
 }
 
-+(NSString *)currentVersion
++(NSString *)getCurrentVersion
 {
     return  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
@@ -111,10 +136,17 @@ static YBManager *ybToolModel = nil;
 
 +(void)callSomebody:(NSString *)tel
 {
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",tel];
-    UIWebView * callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [[UIApplication sharedApplication].keyWindow addSubview:callWebview];
+    if ([YBManager stringIsEmpty:tel]) {
+        return;
+    }
+    NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",tel];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{UIApplicationOpenURLOptionsSourceApplicationKey:@YES} completionHandler:^(BOOL success) {
+        if(success){
+             NSLog(@"成功");
+        } else {
+             NSLog(@"失败");
+        }
+    }];
 }
 
 + (BOOL)ifThisStringIsAnNumber:(NSString *)str
@@ -427,6 +459,19 @@ static YBManager *ybToolModel = nil;
     return array;
 }
 
++(NSString *)getNowTimeStamp {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // 设置想要的格式，hh与HH的区别:分别表示12小时制,24小时制
+    //设置时区,这一点对时间的处理很重要
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+        NSDate *dateNow = [NSDate date];
+    NSString *timeStamp = [NSString stringWithFormat:@"%ld", (long)[dateNow timeIntervalSince1970]];
+    return timeStamp;
+}
+
 
 
 + (NSString *_Nullable)getTimeSp{
@@ -450,6 +495,10 @@ static YBManager *ybToolModel = nil;
         return YES;
     }
     
+    if ([NSString stringWithFormat:@"%@",object].length == 0) {
+        return YES;
+    }
+    
     if ([object isEqualToString:@"<null>"]) {
         return YES;
     }
@@ -459,7 +508,24 @@ static YBManager *ybToolModel = nil;
     }
     return NO;
 }
-
++(NSString *)GstringIsEmpty:(id _Nonnull)object {
+    if (![YBManager stringIsEmpty:object]) {
+        return object;
+    } else {
+        return @"";
+    }
+}
+/// 添加四边阴影效果
++(void)addShadowToView:(UIView *)theView withColor:(UIColor *)theColor{
+    // 阴影颜色
+    theView.layer.shadowColor = theColor.CGColor;
+    // 阴影偏移，默认(0, -3)
+    theView.layer.shadowOffset = CGSizeMake(0,0);
+    // 阴影透明度，默认0
+    theView.layer.shadowOpacity = 0.5;
+    // 阴影半径，默认3
+    theView.layer.shadowRadius = 5;
+}
 
 -(void)requiredRandomCode:(myBlock _Nullable )block{
     if (block) {
@@ -467,4 +533,54 @@ static YBManager *ybToolModel = nil;
     }
 }
 
++(NSString *_Nullable)getCurrentMonth{
+    // 获取代表公历的NSCalendar对象
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    // 获取当前日期
+    NSDate* dt = [NSDate date];
+    // 定义一个时间字段的旗标，指定将会获取指定年、月、日、时、分、秒的信息
+    unsigned unitFlags = NSCalendarUnitYear |
+
+    NSCalendarUnitMonth | NSCalendarUnitDay |
+
+    NSCalendarUnitHour | NSCalendarUnitMinute |
+
+    NSCalendarUnitSecond | NSCalendarUnitWeekday;
+    // 获取不同时间字段的信息
+    NSDateComponents* comp = [gregorian components: unitFlags fromDate:dt];
+    return [NSString stringWithFormat:@"%ld",comp.month];
+}
+
+
+/// 获取当前年份
++(NSString *_Nullable)getCurrentYear{
+    NSDate *  senddate=[NSDate date];
+    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"yyyy"];
+    NSString *thisYearString=[dateformatter stringFromDate:senddate];
+    return thisYearString;
+}
+
+
++(NSString *_Nullable)getStringWithNSNumberFor:(CGFloat)myValue{
+    NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
+    format.numberStyle = NSNumberFormatterDecimalStyle;
+    NSString *valueSring = [format stringFromNumber:[NSNumber numberWithDouble:myValue]];
+    return valueSring;
+}
+
++(NSString *)transformTime:(NSInteger)count{
+     NSInteger hour = count / 3600;
+     NSInteger min = (count - hour * 3600) / 60;
+     NSInteger sec = count - hour * 3600 - min * 60;
+     NSString * time = [NSString stringWithFormat:@"%.2zd:%.2zd:%.2zd",hour,min,sec];
+     return time;
+}
+
++(UIColor *)colorWith:(NSInteger)hex{
+    return [UIColor colorWithRed:((hex & 0xFF0000) >> 8*2)/255.0
+                              green:((hex & 0x00FF00) >> 8*1)/255.0
+                               blue:((hex & 0x0000FF) >> 8*0)/255.0
+                              alpha:1.0];
+}
 @end

@@ -1,13 +1,21 @@
 //
-//  222222222YBToolModel.h
+//  YBToolModel.h
 //  Demo_YB
 //
 //  Created by yan on 2018/7/8.
 //  Copyright © 2018年 YB. All rights reserved.
 //
 
+
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+//屏幕长宽
+#define YBScreenWidth [UIScreen mainScreen].bounds.size.width
+#define YBScreenHeight [UIScreen mainScreen].bounds.size.height
+#define YBWidthRate KUIScreenWidth/375
+#define YBHeightRate KUIScreenHeight/667
 
 //定义block
 typedef void (^myBlock)(NSString * _Nonnull random);
@@ -18,9 +26,39 @@ typedef void (^myBlock)(NSString * _Nonnull random);
 
 + (instancetype _Nullable )shared;
 
+/// 主要字体大小
+@property (nonatomic,strong) UIFont  * _Nullable fontMain;
+/// 主要字体颜色
+@property (nonatomic,strong) UIColor * _Nullable colorFont;
+
+/// 浅色字体
+@property (nonatomic,strong) UIColor * _Nullable colorFontLight;
+
+/// 主题颜色
+@property (nonatomic,strong) UIColor * _Nullable colorMain;
+
+/// 背景颜色
+@property (nonatomic,strong) UIColor * _Nullable colorBg;
+
+/// 横线颜色
+@property (nonatomic,strong) UIColor * _Nullable colorLine;
+
+
+
 
 /**获取当前时间*/
 + (NSString *_Nullable)getCurrentTime;
+
+
+/// 获取当前月份
++(NSString *_Nullable)getCurrentMonth;
+
+
+/// 获取当前时间戳
++(NSString *_Nullable)getNowTimeStamp;
+
+/// 获取当前年份
++(NSString *_Nullable)getCurrentYear;
 
 /**将日期格式转化成字符串*/
 +(NSString*_Nullable)getFormatedTime:(NSDate*_Nullable)date;
@@ -38,7 +76,7 @@ typedef void (^myBlock)(NSString * _Nonnull random);
 +(NSInteger)getDaysFrom:(NSDate *_Nullable)serverDate To:(NSDate *_Nullable)endDate;
 
 /** 当前版本号*/
-+(NSString *_Nullable)currentVersion;
++(NSString *_Nullable)getCurrentVersion;
 
 /** 判断这个ad在此用户是否显示过(uid + md5 判断)*/
 + (BOOL)ifThisADBannerHaveOnceShowed:(NSString *_Nullable)md5;
@@ -161,7 +199,35 @@ typedef void (^myBlock)(NSString * _Nonnull random);
 +(BOOL)stringIsEmpty:(id _Nonnull)object;
 
 
+/**
+ 不负责返回不为null字符串
+
+ @param object <#object description#>
+ @return <#return value description#>
+ */
++(NSString *_Nullable)GstringIsEmpty:(id _Nonnull)object;
+
+
 -(void)requiredRandomCode:(myBlock _Nullable )block;
 
 
+/// 添加阴影
+/// @param theView <#theView description#>
+/// @param theColor <#theColor description#>
++(void)addShadowToView:(UIView *_Nullable)theView withColor:(UIColor *_Nullable)theColor;
+
+
+/// 取数据原型的值 防止数据异常
+/// @param myValue <#floatValue description#>
++(NSString *_Nullable)getStringWithNSNumberFor:(CGFloat)myValue;
+
+
+/// 时间转化  时间秒数转化成-> 00:00:00
+/// @param count <#count description#>
++(NSString *_Nullable)transformTime:(NSInteger)count;
+
+
+/// 获取颜色
+/// @param hex <#hex description#>
++(UIColor *_Nonnull)colorWith:(NSInteger)hex;
 @end
