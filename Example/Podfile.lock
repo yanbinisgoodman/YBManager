@@ -1,5 +1,5 @@
 PODS:
-  - YBManager (0.1.8)
+  - YBManager (0.1.9)
 
 DEPENDENCIES:
   - YBManager (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YBManager: 7a8e000aedae9317ec36541b1f376037e583f6fd
+  YBManager: b3c439ce8a4af1583e4c0a026697b60ee4844c33
 
 PODFILE CHECKSUM: 8b4f3e57840281d002626ef6dc95fd6d5aa529b0
 

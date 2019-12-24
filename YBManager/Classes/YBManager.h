@@ -44,11 +44,6 @@ typedef void (^myBlock)(NSString * _Nonnull random);
 @property (nonatomic,strong) UIColor * _Nullable colorLine;
 
 
-/// 测试
-@property (nonatomic,strong) NSString * _Nullable pp;
-
-
-
 /**获取当前时间*/
 + (NSString *_Nullable)getCurrentTime;
 

@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YBAccountManager : NSObject
 
+
+/// 测试
+@property (nonatomic,strong) NSString * pp;
 @end
 
 NS_ASSUME_NONNULL_END
