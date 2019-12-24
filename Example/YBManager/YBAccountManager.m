@@ -10,4 +10,12 @@
 
 @implementation YBAccountManager
 
++ (YBAccountManager *)shared{
+    static dispatch_once_t once = 0;
+    static YBAccountManager *countManager;
+    dispatch_once(&once, ^{
+        countManager = [[YBAccountManager alloc] init];
+    });
+    return countManager;
+}
 @end
