@@ -40,4 +40,11 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'YYCache'
+  
+  
+  
+  
+  
+  #验证合法性 pod lib lint YBManager.podspec
+  #提交 pod trunk push YBManager.podspec
 end
