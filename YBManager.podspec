@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'YBManager/Classes/**/*','YBManager/Classes/*.{m,h}'
+  s.source_files = 'YBManager/Classes/**/*','YBManager/Classes/*.{m,h}','YBAccountManager/Classes/*.{m,h}'
   
   # s.resource_bundles = {
   #   'YBManager' => ['YBManager/Assets/*.png']

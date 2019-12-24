@@ -140,13 +140,17 @@ static YBManager *ybToolModel = nil;
         return;
     }
     NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",tel];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{UIApplicationOpenURLOptionsSourceApplicationKey:@YES} completionHandler:^(BOOL success) {
-        if(success){
-             NSLog(@"成功");
-        } else {
-             NSLog(@"失败");
-        }
-    }];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{UIApplicationOpenURLOptionsSourceApplicationKey:@YES} completionHandler:^(BOOL success) {
+            if(success){
+                NSLog(@"成功");
+            } else {
+                NSLog(@"失败");
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 + (BOOL)ifThisStringIsAnNumber:(NSString *)str
