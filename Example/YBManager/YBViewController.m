@@ -7,7 +7,7 @@
 //
 
 #import "YBViewController.h"
-
+#import "YBAccountManager.h"
 @interface YBViewController ()
 
 @end
@@ -17,7 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [[YBAccountManager shared]loginOut:^{
+        NSLog(@"退出登录后的操作2");
+    }];
 }
 
 - (void)didReceiveMemoryWarning

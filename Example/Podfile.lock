@@ -1,16 +1,24 @@
 PODS:
-  - YBManager (0.1.9)
+  - YBManager (1.0.0):
+    - YYCache
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - YBManager (from `../`)
+  - YYCache
+
+SPEC REPOS:
+  trunk:
+    - YYCache
 
 EXTERNAL SOURCES:
   YBManager:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YBManager: b3c439ce8a4af1583e4c0a026697b60ee4844c33
+  YBManager: 648e72ee8404a19f44b9cdba41a3bee0ce317105
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 8b4f3e57840281d002626ef6dc95fd6d5aa529b0
+PODFILE CHECKSUM: 78852a4bd4a0ca06bd476e8909014ca37daf747b
 
 COCOAPODS: 1.8.0.beta.2

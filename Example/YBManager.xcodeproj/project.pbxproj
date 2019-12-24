@@ -22,6 +22,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		8E8C2D6B23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C2D6923B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m */; };
+		8E8C2D6C23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C2D6923B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m */; };
 		8EC583FD2317998F006D1F83 /* YBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC583FC2317998F006D1F83 /* YBManager.m */; };
 		8ECB76F923B1E1B800DB78C9 /* YBAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB76F723B1E1B800DB78C9 /* YBAccountManager.m */; };
 		8ECB76FA23B1E1B800DB78C9 /* YBAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB76F723B1E1B800DB78C9 /* YBAccountManager.m */; };
@@ -64,6 +66,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8E8C2D6923B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+KeyForGetterSetter.m"; path = "../../YBManager/Classes/NSString+KeyForGetterSetter.m"; sourceTree = "<group>"; };
+		8E8C2D6A23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+KeyForGetterSetter.h"; path = "../../YBManager/Classes/NSString+KeyForGetterSetter.h"; sourceTree = "<group>"; };
 		8EC583FB2317998F006D1F83 /* YBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YBManager.h; path = ../../YBManager/Classes/YBManager.h; sourceTree = "<group>"; };
 		8EC583FC2317998F006D1F83 /* YBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YBManager.m; path = ../../YBManager/Classes/YBManager.m; sourceTree = "<group>"; };
 		8ECB76F723B1E1B800DB78C9 /* YBAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YBAccountManager.m; path = ../../YBManager/Classes/YBAccountManager.m; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				8ECB76F723B1E1B800DB78C9 /* YBAccountManager.m */,
 				8EC583FB2317998F006D1F83 /* YBManager.h */,
 				8EC583FC2317998F006D1F83 /* YBManager.m */,
+				8E8C2D6A23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.h */,
+				8E8C2D6923B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
+				CD15641AF2672CE4B7DF68E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,10 +332,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YBManager_Example/Pods-YBManager_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/YBManager/YBManager.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YBManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -379,6 +388,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CD15641AF2672CE4B7DF68E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YBManager_Tests/Pods-YBManager_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YBManager_Tests/Pods-YBManager_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -387,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EC583FD2317998F006D1F83 /* YBManager.m in Sources */,
+				8E8C2D6B23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m in Sources */,
 				8ECB76F923B1E1B800DB78C9 /* YBAccountManager.m in Sources */,
 				6003F59E195388D20070C39A /* YBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* YBViewController.m in Sources */,
@@ -399,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECB76FA23B1E1B800DB78C9 /* YBAccountManager.m in Sources */,
+				8E8C2D6C23B1EFA600DEF6AE /* NSString+KeyForGetterSetter.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
