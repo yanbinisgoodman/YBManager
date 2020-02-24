@@ -56,7 +56,6 @@
     }
 }
 
-
 - (void)setIsLogin:(BOOL)isLogin{
     [self.accountCache setObject:@(isLogin) forKey:kCache];
 }

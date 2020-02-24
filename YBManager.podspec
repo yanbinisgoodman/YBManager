@@ -47,4 +47,5 @@ TODO: Add long description of the pod here.
   
   #验证合法性 pod lib lint YBManager.podspec
   #提交 pod trunk push YBManager.podspec
+  #更新本地仓库 pod repo update
 end
